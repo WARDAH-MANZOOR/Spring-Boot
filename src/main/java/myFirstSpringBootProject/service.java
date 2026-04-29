@@ -1,6 +1,7 @@
 package myFirstSpringBootProject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -53,5 +54,22 @@ public class service {
 
     public List<student> getAllStudents() {
         return repo.findAll();
+    }
+    public student getStudentbyID(@PathVariable int id) {
+        return repo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Not found"));
+    }
+    public student updateStudent(int id, student newData) {
+
+        student existing = repo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Student not found"));
+
+        existing.setName(newData.getName());
+        existing.setMarks(newData.getMarks());
+
+        return repo.save(existing);
+    }
+    public void deleteStudent(int id) {
+        repo.deleteById(id);
     }
 }

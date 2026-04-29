@@ -55,5 +55,23 @@ public class controller {
     public List<student> getStudents() {
         return service.getAllStudents();
     }
+    @PutMapping("/student/{id}")
+    public student updateStudent(@PathVariable int id,
+                                 @RequestBody student student) {
+        return service.updateStudent(id, student);
+    }
+
+    @DeleteMapping("/student/{id}")
+    public String deleteStudent(@PathVariable int id) {
+        service.deleteStudent(id);
+        return "Student deleted successfully";
+    }
+
+    @GetMapping("/student/id/{id}")
+    public student getStudent(@PathVariable int id) {
+        return service.getStudentbyID(id);
+
+    }
+
 
 }
