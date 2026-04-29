@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired; //Ye import Sprin
 // service() likhne ki zaroorat nahi parti.
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class controller {
 
@@ -47,6 +49,11 @@ public class controller {
     @PostMapping("/student")
     public student createStudent(@RequestBody student student) {
         return service.saveStudent(student);
+    }
+
+    @GetMapping("/students")
+    public List<student> getStudents() {
+        return service.getAllStudents();
     }
 
 }
