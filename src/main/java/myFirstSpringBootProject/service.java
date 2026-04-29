@@ -1,9 +1,14 @@
 package myFirstSpringBootProject;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class service {
+    @Autowired
+    studentRepository repo;
+
     public int square(int num) {
         return num * num;
     }
@@ -38,6 +43,15 @@ public class service {
         } else {
             student.setStatus("Fail");
         }
-        return student;
+//        return student;
+        return repo.save(student);
+
+    }
+//    public student saveStudent1(student s) {
+//        return repo.save(s);
+//    }
+
+    public List<student> getAllStudents() {
+        return repo.findAll();
     }
 }

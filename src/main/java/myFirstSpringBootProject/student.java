@@ -1,6 +1,16 @@
 package myFirstSpringBootProject;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class student {
+    public student() {
+    }
+    @Id  // <--- Ye add karein (Primary Key batane ke liye)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // <--- Ye ID auto-increment karega
     private int id;
     private String name;
     private float marks;
