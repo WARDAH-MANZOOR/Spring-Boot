@@ -40,4 +40,13 @@ public class controller {
     public student getStudent(@PathVariable String name) {
         return service.getStudentData(name);
     }
+    @PostMapping("/user")
+    public user createUser(@RequestBody user user) {
+        return service.saveUser(user);
+    }
+    @PostMapping("/student")
+    public student createStudent(@RequestBody student student) {
+        return service.saveStudent(student);
+    }
+
 }
