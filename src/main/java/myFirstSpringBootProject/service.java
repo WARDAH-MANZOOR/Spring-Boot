@@ -26,4 +26,18 @@ public class service {
         return new student(1, name, 76);
 
     }
+
+    public user saveUser(user user) {
+        // abhi sirf return kar rahe hain (database later)
+        return user;
+    }
+
+    public student saveStudent(student student) {
+        if (student.getMarks() > 50) {
+            student.setStatus("Pass"); // Quotes zaroori hain aur setter use kiya
+        } else {
+            student.setStatus("Fail");
+        }
+        return student;
+    }
 }
