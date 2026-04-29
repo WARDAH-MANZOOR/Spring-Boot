@@ -29,6 +29,14 @@ public class student {
     public float getMarks() { return marks; } // Naam theek kiya (pehle getAge tha)
     public String getStatus() { return status; }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setMarks(float marks) {
+        this.marks = marks;
+    }
+
+
     // Setter for status (is ki zaroorat paray gi)
     public void setStatus(String status) {
         this.status = status;
