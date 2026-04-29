@@ -31,4 +31,13 @@ public class controller {
     public String fullName(@RequestParam String firstName, @RequestParam String lastName) {
         return service.fullName(firstName,lastName);
     }
+
+    @GetMapping("/user") // browser pe URL hit kiya.
+    public user getUser() { // Controller ne dekha "Achha, /user chahiye? Ruko, main Service se mangwata hoon.
+        return service.getUserData();
+    }
+    @GetMapping("/student/{name}")
+    public student getStudent(@PathVariable String name) {
+        return service.getStudentData(name);
+    }
 }
