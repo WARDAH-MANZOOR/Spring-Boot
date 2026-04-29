@@ -18,4 +18,12 @@ public class service {
     public String fullName(String firstName, String lastName) {
         return "Hello " + firstName + " " + lastName + " 👋";
     }
+    public user getUserData() {// Service ne ek naya User object create kiya aur Controller ko de diya.
+        return new user(1, "Wardah", 22); // Spring Boot ne dekha ke tumne User object bheja hai,
+        // usne usay "JSON" (wo brackets wali shakal { }) mein convert kiya
+    }
+    public student getStudentData(String name) {
+        return new student(1, name, 76);
+
+    }
 }
