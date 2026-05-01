@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.*;
+
 
 @Entity
 public class student {
@@ -12,8 +14,17 @@ public class student {
     @Id  // <--- Ye add karein (Primary Key batane ke liye)
     @GeneratedValue(strategy = GenerationType.IDENTITY) // <--- Ye ID auto-increment karega
     private int id;
+//    private String name;
+//    private float marks;
+
+    // after validation added
+    @NotBlank(message = "Name is required")
     private String name;
+
+    @Min(value = 0, message = "Marks cannot be negative")
+    @Max(value = 100, message = "Marks cannot exceed 100")
     private float marks;
+
     private String status; // Naya field status store karne ke liye
 
     // Constructor
