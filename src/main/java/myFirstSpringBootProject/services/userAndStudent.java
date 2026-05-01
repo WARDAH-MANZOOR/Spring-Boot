@@ -1,4 +1,5 @@
 package myFirstSpringBootProject.services;
+import myFirstSpringBootProject.dto.studentDTO;
 import myFirstSpringBootProject.exception.ResourceNotFoundException;
 import myFirstSpringBootProject.models.student;
 import myFirstSpringBootProject.models.user;
@@ -55,9 +56,20 @@ public class userAndStudent {
 //        return repo.save(s);
 //    }
 
-    public List<student> getAllStudents() {
-        return repo.findAll();
+//    public List<student> getAllStudents() {
+//        return repo.findAll();
+//    }
+    // applied dto
+    public List<studentDTO> getAllStudents() {
+        List<student> students = repo.findAll();
+
+        return students.stream()
+                .map(s -> new studentDTO(s.getName(), s.getMarks(),s.getStatus()))
+                .toList();
     }
+
+
+
     // without exception handling
     //    public student getStudentbyID(@PathVariable int id) {
     //        return repo.findById(id)
