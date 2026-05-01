@@ -1,7 +1,7 @@
 package myFirstSpringBootProject;
+import myFirstSpringBootProject.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -55,9 +55,16 @@ public class service {
     public List<student> getAllStudents() {
         return repo.findAll();
     }
-    public student getStudentbyID(@PathVariable int id) {
+    // without exception handling
+    //    public student getStudentbyID(@PathVariable int id) {
+    //        return repo.findById(id)
+    //                .orElseThrow(() -> new RuntimeException("Not found"));
+    //    }
+
+    // after exception handling
+    public student getStudentbyID(int id) {
         return repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id: " + id));
     }
     public student updateStudent(int id, student newData) {
 
