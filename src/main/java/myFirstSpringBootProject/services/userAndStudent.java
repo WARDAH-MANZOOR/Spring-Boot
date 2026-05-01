@@ -1,12 +1,15 @@
-package myFirstSpringBootProject;
+package myFirstSpringBootProject.services;
 import myFirstSpringBootProject.exception.ResourceNotFoundException;
+import myFirstSpringBootProject.models.student;
+import myFirstSpringBootProject.models.user;
+import myFirstSpringBootProject.repository.studentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class service {
+public class userAndStudent {
     @Autowired
     studentRepository repo;
 

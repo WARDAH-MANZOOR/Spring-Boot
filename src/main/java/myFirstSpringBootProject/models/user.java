@@ -1,4 +1,4 @@
-package myFirstSpringBootProject;
+package myFirstSpringBootProject.models;
 //Ye User.java hai. Ye sirf ek "shakal" ya "structure" hai ke ek User kaisa dikhta hai (ID, Name, Age).
 // Ye khud kuch nahi karta, bas data hold karta hai.
 public class user {
