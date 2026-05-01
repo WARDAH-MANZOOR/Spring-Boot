@@ -1,6 +1,7 @@
 package myFirstSpringBootProject.controllers;
 
 import jakarta.validation.Valid;
+import myFirstSpringBootProject.dto.studentDTO;
 import myFirstSpringBootProject.models.student;
 import myFirstSpringBootProject.models.user;
 import myFirstSpringBootProject.services.userAndStudent;
@@ -54,9 +55,13 @@ public class userAndstudent {
     public student createStudent(@Valid @RequestBody student student) {
         return service.saveStudent(student);
     }
-
+//
+//    @GetMapping("/students")
+//    public List<student> getStudents() {
+//        return service.getAllStudents();
+//    }
     @GetMapping("/students")
-    public List<student> getStudents() {
+    public List<studentDTO> getAll() {
         return service.getAllStudents();
     }
     @PutMapping("/student/{id}")
