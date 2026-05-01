@@ -1,4 +1,4 @@
-package myFirstSpringBootProject;
+package myFirstSpringBootProject.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package myFirstSpringBootProject;
+package myFirstSpringBootProject.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,6 +1,9 @@
-package myFirstSpringBootProject;
+package myFirstSpringBootProject.controllers;
 
 import jakarta.validation.Valid;
+import myFirstSpringBootProject.models.student;
+import myFirstSpringBootProject.models.user;
+import myFirstSpringBootProject.services.userAndStudent;
 import org.springframework.beans.factory.annotation.Autowired; //Ye import Spring ko allow karta hai ke wo
 // khud se service ka object dhoonde aur aapke controller mein "insert" ya "plug-in" kar de. Aapko new
 // service() likhne ki zaroorat nahi parti.
@@ -9,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class controller {
+public class userAndstudent {
 
     @Autowired
-    service service;
+    userAndStudent service;
 
     @GetMapping("/cube/{num}")
     public int getCube(@PathVariable int num) {
