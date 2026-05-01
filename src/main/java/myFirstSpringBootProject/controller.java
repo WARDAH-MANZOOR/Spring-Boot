@@ -1,5 +1,6 @@
 package myFirstSpringBootProject;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired; //Ye import Spring ko allow karta hai ke wo
 // khud se service ka object dhoonde aur aapke controller mein "insert" ya "plug-in" kar de. Aapko new
 // service() likhne ki zaroorat nahi parti.
@@ -47,7 +48,7 @@ public class controller {
         return service.saveUser(user);
     }
     @PostMapping("/student")
-    public student createStudent(@RequestBody student student) {
+    public student createStudent(@Valid @RequestBody student student) {
         return service.saveStudent(student);
     }
 
