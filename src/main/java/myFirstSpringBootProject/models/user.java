@@ -5,6 +5,7 @@ public class user {
     private int id;
     private String name;
     private int age;
+    private String password;
 
     // Constructor
     public user(int id, String name, int age) {
@@ -17,4 +18,8 @@ public class user {
     public int getId() { return id; }
     public String getName() { return name; }
     public int getAge() { return age; }
+    public String getPassword() { return password; }
+
+    // Setters
+    public void setPassword(String password) { this.password = password; }
 }
