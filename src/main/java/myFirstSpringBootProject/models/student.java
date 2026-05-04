@@ -5,10 +5,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
+import java.util.List;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
 
 
 @Entity
 public class student {
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<course> courses;
     public student() {
     }
     @Id  // <--- Ye add karein (Primary Key batane ke liye)
@@ -26,6 +31,8 @@ public class student {
     private float marks;
 
     private String status; // Naya field status store karne ke liye
+
+
 
     // Constructor
     public student(int id, String name, float marks) {
@@ -46,6 +53,9 @@ public class student {
     public void setMarks(float marks) {
         this.marks = marks;
     }
+
+    public List<course> getCourses() { return courses; }
+    public void setCourses(List<course> courses) { this.courses = courses; }
 
 
     // Setter for status (is ki zaroorat paray gi)
