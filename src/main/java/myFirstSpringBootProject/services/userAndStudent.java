@@ -6,6 +6,7 @@ import myFirstSpringBootProject.models.student;
 import myFirstSpringBootProject.models.user;
 import myFirstSpringBootProject.repository.studentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,10 @@ import java.util.List;
 public class userAndStudent {
     @Autowired
     studentRepository repo;
+//    @Autowired
+//    private BCryptPasswordEncoder encoder; // SecurityConfig se encoder mangwaya
+
+
 
     public int square(int num) {
         return num * num;
@@ -39,8 +44,13 @@ public class userAndStudent {
     }
 
     public user saveUser(user user) {
-        // abhi sirf return kar rahe hain (database later)
+        // Jo password user ne bheja (e.g., "12345"), usay kachre (hash) mein badal do
+//        String securePassword = encoder.encode(user.getPassword());
+//        user.setPassword(securePassword);
+//
+//        System.out.println("Encoded Password: " + securePassword); // Console mein check karne ke liye
         return user;
+
     }
 
     public student saveStudent(student student) {
