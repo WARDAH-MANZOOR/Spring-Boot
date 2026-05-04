@@ -82,5 +82,10 @@ public class userAndstudent {
 
     }
 
+    @PostMapping("/student/with-courses")
+    public student createStudentWithCourses(@RequestBody student student) {
+        return service.saveStudentWithCourses(student);
+    }
+
 
 }

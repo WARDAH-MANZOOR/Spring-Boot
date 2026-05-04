@@ -1,6 +1,7 @@
 package myFirstSpringBootProject.services;
 import myFirstSpringBootProject.dto.studentDTO;
 import myFirstSpringBootProject.exception.ResourceNotFoundException;
+import myFirstSpringBootProject.models.course;
 import myFirstSpringBootProject.models.student;
 import myFirstSpringBootProject.models.user;
 import myFirstSpringBootProject.repository.studentRepository;
@@ -93,5 +94,24 @@ public class userAndStudent {
     }
     public void deleteStudent(int id) {
         repo.deleteById(id);
+    }
+
+    // Service class mein ye method add karein
+    public student saveStudentWithCourses(student s) {
+        // Relationship link karna zaroori hai
+        if (s.getCourses() != null) {
+            for (course c : s.getCourses()) {
+                c.setStudent(s); // Har course ko batana ke uska student kaun hai
+            }
+        }
+
+        // Status logic (jo aapne pehle likha tha)
+        if (s.getMarks() > 50) {
+            s.setStatus("Pass");
+        } else {
+            s.setStatus("Fail");
+        }
+
+        return repo.save(s);
     }
 }
